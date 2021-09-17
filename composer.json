@@ -1,0 +1,15 @@
+{
+    "name": "workshop/sm_workshop",
+    "autoload": {
+        "psr-4": {
+            "Workshop\\SmWorkshop\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lucasmcar",
+            "email": "lmc.lucas90@gmail.com"
+        }
+    ],
+    "require": {}
+}
