@@ -1,2 +1,2 @@
 <?php
-echo "Arquivo inicial";
+echo "Arquivo inicial updated";
