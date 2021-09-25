@@ -4,18 +4,24 @@ namespace Workshop\SmWorkshop\Config;
 
 class CustomHash
 {
+
+    private $key;
+
+    private function __construct()
+    {
+
+    }
+
     /**
      * Método que valida e faz o hash da senha
      * @param $key
      * @return false|string|void|null
      */
-
     public static function encodePass($key)
     {
         if(!empty($key) && strlen($key) >= 6) {
             return password_hash($key, PASSWORD_DEFAULT);
         }
-
     }
 
     /**
@@ -25,10 +31,6 @@ class CustomHash
      */
     public static function decodePass($key)
     {
-        if(password_verify($key, self::encodePass($key))){
-            return true;
-        }
-
-        return false;
+        return (password_verify($key, self::encodePass($key))) ? 1 : 0;
     }
 }
