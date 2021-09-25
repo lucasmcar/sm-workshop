@@ -57,6 +57,7 @@ create table TB_SM_NIVEL(
 create table TB_SM_SERVICO(
     ID_SERVICO int not null auto_increment,
     SERVICO VARCHAR(100),
+    COD_SERVICO varchar(6),
     DESC_SERVICO TEXT,
     DATA_ENTRADA DATE,
     DATA_PREVISTA_ENTREGA DATE,
@@ -70,6 +71,7 @@ create table TB_SM_SERVICO(
 -- ---------------------------------------------
 create table TB_SM_STATUS(
     ID_STATUS int not null auto_increment,
+    DATA_ATUALIZACAO date ,
     ANDAMENTO VARCHAR(255),
     DIAS_ENTREGA INT,
     PRIMARY KEY(ID_STATUS)
@@ -137,3 +139,10 @@ FOREIGN KEY
     (`ID_STATUS`)
 REFERENCES
     `TB_SM_STATUS` (`ID_STATUS`);
+    
+    
+select tb_sm_status.ID_STATUS, tb_sm_status.ANDAMENTO, servico, nome, marca
+from tb_sm_status
+left join tb_sm_servico on tb_sm_status.ID_STATUS = 1 
+left join tb_sm_veiculo on tb_sm_servico.ID_SERVICO = 2
+where COD_SERVICO = 148523
